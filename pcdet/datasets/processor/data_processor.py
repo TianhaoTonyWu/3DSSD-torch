@@ -44,7 +44,7 @@ class DataProcessor(object):
     def transform_points_to_voxels(self, data_dict=None, config=None, voxel_generator=None):
         if data_dict is None:
             try:
-                from spconv.utils import VoxelGeneratorV2 as VoxelGenerator
+                from spconv.pytorch.utils import PointToVoxel as VoxelGenerator
             except:
                 from spconv.utils import VoxelGenerator
 
