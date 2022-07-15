@@ -188,7 +188,7 @@ class KittiDataset(DatasetTemplate):
 
         sample_id_list = sample_id_list if sample_id_list is not None else self.sample_id_list
         with futures.ThreadPoolExecutor(num_workers) as executor:
-            infos = executor.map(process_single_scene(), sample_id_list)
+            infos = executor.map(process_single_scene, sample_id_list)
         return list(infos)
 
     def create_groundtruth_database(self, info_path=None, used_classes=None, split='train'):
