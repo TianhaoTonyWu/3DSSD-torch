@@ -120,7 +120,7 @@ class KittiDataset(DatasetTemplate):
     def get_infos(self, num_workers=4, has_label=True, count_inside_pts=True, sample_id_list=None):
         import concurrent.futures as futures
 
-        def process_single_scene(sample_idx):
+        def process_single_scene(sample_idx : str):
             print('%s sample_idx: %s' % (self.split, sample_idx))
             info = {}
             pc_info = {'num_features': 4, 'lidar_idx': sample_idx}

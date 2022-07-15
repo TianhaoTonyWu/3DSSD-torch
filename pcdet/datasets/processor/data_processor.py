@@ -151,11 +151,12 @@ class DataProcessor(object):
         cur_frame_points = num_points[0]
         prev_frame_points = num_points[1]
 
-        voxel_generator = VoxelGenerator(
-            voxel_size=config.VOXEL_SIZE,
-            point_cloud_range=self.point_cloud_range,
-            max_num_points=config.MAX_POINTS_PER_VOXEL,
-            max_voxels=config.MAX_NUMBER_OF_VOXELS[self.mode]
+        voxel_generator = PointToVoxel(
+            vsize_xyz = config.VOXEL_SIZE,
+            coors_range_xyz=self.point_cloud_range,
+            max_num_points_per_voxel=config.MAX_POINTS_PER_VOXEL,
+            max_num_voxels=config.MAX_NUMBER_OF_VOXELS[self.mode],
+            num_point_features = 3
         )
 
         # sample from cur_frame
